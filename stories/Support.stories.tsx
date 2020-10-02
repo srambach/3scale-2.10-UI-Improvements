@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { DataList } from '@app/DataList/DataList';
+import { APIDataList } from '@app/APIDataList/APIDataList';
 
 const stories = storiesOf('Components', module);
 stories.addDecorator(withInfo);
 stories.add(
-  'DataList',
-  () => <DataList />,
+  'APIDataList',
+  () => <APIDataList />,
   { info: { inline: true } }
 );

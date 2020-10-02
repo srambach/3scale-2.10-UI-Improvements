@@ -3,8 +3,8 @@ import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { Alert, PageSection } from '@patternfly/react-core';
 import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
-import { Table } from '@app/Table/Table';
-import { DataList } from '@app/DataList/DataList';
+import { APITable } from '@app/APITable/APITable';
+import { APIDataList } from '@app/APIDataList/APIDataList';
 import { ContextSelector } from '@app/ContextSelector/ContextSelector';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
@@ -12,7 +12,7 @@ import { LastLocationProvider, useLastLocation } from 'react-router-last-locatio
 
 let routeFocusTimer: number;
 
-const getSupportModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/DataList/DataList');
+const getSupportModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/APIDataList/APIDataList');
 
 const Support = (routeProps: RouteComponentProps): React.ReactElement => {
   const lastNavigation = useLastLocation();
@@ -60,14 +60,14 @@ export type AppRouteConfig = IAppRoute | IAppRouteGroup;
 
 const routes: AppRouteConfig[] = [
   {
-    component: Table,
+    component: APITable,
     exact: true,
     label: 'Table',
     path: '/',
     title: '3scale',
   },
   {
-    component: DataList,
+    component: APIDataList,
     exact: true,
     isAsync: true,
     label: 'Data List',

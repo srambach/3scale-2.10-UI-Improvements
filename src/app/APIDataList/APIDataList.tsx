@@ -1,0 +1,216 @@
+import React, {useState} from 'react';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardHeader,
+  CardHeaderMain,
+  CardTitle,
+  CardBody,
+  CardFooter,
+  PageSection,
+  Grid,
+  GridItem,
+  Title,
+  Dropdown,
+  DropdownItem,
+  DropdownPosition,
+  KebabToggle,
+  DataList,
+  DataListItem,
+  DataListCell,
+  DataListItemRow,
+  DataListItemCells,
+  DataListAction
+} from '@patternfly/react-core';
+import CubesIcon from '@patternfly/react-icons/dist/js/icons/cubes-icon';
+import './APIDataList.css';
+import mockDataAPI from './../../mockdata-api.json';
+import mockDataBackend from './../../mockdata-backend.json';
+
+const APIDataList: React.FunctionComponent = () => {
+
+  const [ isOpen, setIsOpen ] = useState(false);
+
+  const onSelect = () => {
+    setIsOpen(isOpen);
+  };
+
+  const onToggle = () => {
+    setIsOpen(isOpen);
+  };
+
+  const APIDataListItem = mockDataAPI.map((row) => {
+    return (
+      <DataListItem aria-labelledby="single-action-item1">
+      <DataListItemRow>
+        <DataListItemCells
+          dataListCells={[
+            <DataListCell key="primary content">
+              <a href="" id="single-action-item1">
+                {row.name}
+              </a>
+            </DataListCell>,
+            <DataListCell key="secondary content">
+              {row.hits.toLocaleString()}
+            </DataListCell>
+          ]}
+        />
+        <DataListAction
+          aria-labelledby="multi-actions-item1 multi-actions-action1"
+          id="multi-actions-action1"
+          aria-label="Actions"
+          isPlainButtonAction
+        >
+          <Dropdown
+            isPlain
+            position={DropdownPosition.right}
+            isOpen={isOpen}
+            onSelect={onSelect}
+            toggle={<KebabToggle onToggle={onToggle} />}
+            dropdownItems={[
+              <DropdownItem key="link">
+                Overview
+              </DropdownItem>,
+              <DropdownItem key="link">
+                Analytics
+              </DropdownItem>,
+              <DropdownItem key="link">
+                Applications
+              </DropdownItem>,
+              <DropdownItem key="link">
+                ActiveDocs
+              </DropdownItem>,
+              <DropdownItem key="link">
+                Integration
+              </DropdownItem>
+            ]}
+          />
+        </DataListAction>
+      </DataListItemRow>
+    </DataListItem>
+    )
+  });
+
+  const BackendDataListItem = mockDataBackend.map((row) => {
+    return (
+      <DataListItem aria-labelledby="single-action-item1">
+      <DataListItemRow>
+        <DataListItemCells
+          dataListCells={[
+            <DataListCell key="primary content">
+              <a href="" id="single-action-item1">
+                {row.name}
+              </a>
+            </DataListCell>,
+            <DataListCell key="secondary content">
+              {row.timeCreated}
+            </DataListCell>
+          ]}
+        />
+        <DataListAction
+          aria-labelledby="multi-actions-item1 multi-actions-action1"
+          id="multi-actions-action1"
+          aria-label="Actions"
+          isPlainButtonAction
+        >
+          <Dropdown
+            isPlain
+            position={DropdownPosition.right}
+            isOpen={isOpen}
+            onSelect={onSelect}
+            toggle={<KebabToggle onToggle={onToggle} />}
+            dropdownItems={[
+              <DropdownItem key="link">
+                Overview
+              </DropdownItem>,
+              <DropdownItem key="link">
+                Analytics
+              </DropdownItem>,
+              <DropdownItem key="link">
+                Methods and Metrics
+              </DropdownItem>,
+              <DropdownItem key="link">
+                Mapping Rules
+              </DropdownItem>
+            ]}
+          />
+        </DataListAction>
+      </DataListItemRow>
+    </DataListItem>
+    )
+  });
+
+  return (
+    <PageSection>
+      <Grid hasGutter>
+        <GridItem span={6}>
+          <Card>
+            <CardHeader>
+              <CardHeaderMain>
+                <div className="dashboard-list-icon-title-layout">
+                  <CubesIcon/>
+                  <Title headingLevel="h1" size="lg">
+                    Products
+                  </Title>
+                </div>
+                <div className="dashboard-list-subtitle">
+                  Most active (last 7 days)
+                </div>
+              </CardHeaderMain>
+              <CardActions>
+                <Button>
+                  New Product
+                </Button>
+              </CardActions>
+            </CardHeader>
+            <CardBody>
+              <DataList aria-label="single action data list example">
+                {APIDataListItem}
+              </DataList>
+            </CardBody>
+            <CardFooter>
+              <Button variant="link" isInline>
+                Go to Products
+              </Button>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem span={6}>
+          <Card>
+            <CardHeader>
+              <CardHeaderMain>
+                <div className="dashboard-list-icon-title-layout">
+                  <CubesIcon/>
+                  <Title headingLevel="h1" size="lg">
+                    Products
+                  </Title>
+                </div>
+                <div className="dashboard-list-subtitle">
+                  Most recently created
+                </div>
+              </CardHeaderMain>
+              <CardActions>
+                <Button>
+                  New Backend
+                </Button>
+              </CardActions>
+            </CardHeader>
+            <CardBody>
+              <DataList aria-label="single action data list example">
+                {BackendDataListItem}
+              </DataList>
+            </CardBody>
+            <CardFooter>
+              <Button variant="link" isInline>
+                Go to Backends
+              </Button>
+            </CardFooter>
+          </Card>
+        </GridItem>
+      </Grid>
+    </PageSection>
+  );
+};
+
+export { APIDataList };

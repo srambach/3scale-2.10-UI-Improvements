@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Product-1",
+    "systemName": "System-1",
+    "description": "This is a description of Product-1",
+    "hits": 110780,
+    "applications": 2,
+    "backendsUsed": 4,
+    "unreadAlerts": 2
+  },
+  {
+    "name": "Product-2",
+    "systemName": "System-2",
+    "description": "This is a description of Product-2",
+    "hits": 15097,
+    "applications": 4,
+    "backendsUsed": 3,
+    "unreadAlerts": 0
+  },
+  {
+    "name": "Product-3",
+    "systemName": "System-3",
+    "description": "This is a very very long description of Product-3",
+    "hits": 13880,
+    "applications": 1,
+    "backendsUsed": 2,
+    "unreadAlerts": 0
+  },
+  {
+    "name": "Product-4",
+    "systemName": "System-4",
+    "description": "",
+    "hits": 11204,
+    "applications": 3,
+    "backendsUsed": 1,
+    "unreadAlerts": 0
+  }
+]
