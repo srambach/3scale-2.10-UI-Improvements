@@ -40,48 +40,49 @@ const APIDataList: React.FunctionComponent = () => {
     setIsOpen(isOpen);
   };
 
-  const APIDataListItem = mockDataAPI.map((row) => {
+  const APIDataListItem = mockDataAPI.map((row, index) => {
     return (
       <DataListItem aria-labelledby="single-action-item1">
       <DataListItemRow>
         <DataListItemCells
           dataListCells={[
             <DataListCell key="primary content">
-              <a href="" id="single-action-item1">
+              <a href="/" id="single-action-item1">
                 {row.name}
               </a>
             </DataListCell>,
-            <DataListCell key="secondary content">
-              {row.hits.toLocaleString()}
+            <DataListCell key="secondary content" className="dashboard-list-secondary">
+              {row.hits.toLocaleString()} Hits
             </DataListCell>
           ]}
         />
         <DataListAction
           aria-labelledby="multi-actions-item1 multi-actions-action1"
-          id="multi-actions-action1"
+          id="actions-menu"
           aria-label="Actions"
           isPlainButtonAction
         >
           <Dropdown
             isPlain
+            id="actions-menu"
             position={DropdownPosition.right}
             isOpen={isOpen}
             onSelect={onSelect}
             toggle={<KebabToggle onToggle={onToggle} />}
             dropdownItems={[
-              <DropdownItem key="link">
+              <DropdownItem key="link" href="/">
                 Overview
               </DropdownItem>,
-              <DropdownItem key="link">
+              <DropdownItem key="link" href="/">
                 Analytics
               </DropdownItem>,
-              <DropdownItem key="link">
+              <DropdownItem key="link" href="/">
                 Applications
               </DropdownItem>,
-              <DropdownItem key="link">
+              <DropdownItem key="link" href="/">
                 ActiveDocs
               </DropdownItem>,
-              <DropdownItem key="link">
+              <DropdownItem key="link" href="/">
                 Integration
               </DropdownItem>
             ]}
@@ -103,7 +104,7 @@ const APIDataList: React.FunctionComponent = () => {
                 {row.name}
               </a>
             </DataListCell>,
-            <DataListCell key="secondary content">
+            <DataListCell key="secondary content" className="dashboard-list-secondary">
               {row.timeCreated}
             </DataListCell>
           ]}
@@ -151,7 +152,7 @@ const APIDataList: React.FunctionComponent = () => {
                 <div className="dashboard-list-icon-title-layout">
                   <CubesIcon/>
                   <Title headingLevel="h1" size="lg">
-                    Products
+                    Backends
                   </Title>
                 </div>
                 <div className="dashboard-list-subtitle">

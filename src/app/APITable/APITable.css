@@ -1,0 +1,11 @@
+.pf-c-table > tbody > tr > td {
+  font-size: 14px;
+}
+
+.api-table-description {
+  margin-top: 16px;
+}
+
+.api-table-search {
+  width: 300px;
+}

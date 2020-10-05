@@ -5,7 +5,7 @@ import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { APITable } from '@app/APITable/APITable';
 import { APIDataList } from '@app/APIDataList/APIDataList';
-import { ContextSelector } from '@app/ContextSelector/ContextSelector';
+import { ContextSelectorComponent } from '@app/ContextSelectorComponent/ContextSelectorComponent';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
@@ -75,7 +75,7 @@ const routes: AppRouteConfig[] = [
     title: '3scale',
   },
   {
-    component: ContextSelector,
+    component: ContextSelectorComponent,
     exact: true,
     isAsync: true,
     label: 'Context Selector',

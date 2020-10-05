@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
-import { 
+import {
+  Level,
+  LevelItem,
   InputGroup,
   TextInput,
   Button,
   ButtonVariant,
   PageSection,
   Pagination,
+  PaginationVariant,
   PageSectionVariants,
   Title,
   Divider,
@@ -21,6 +24,7 @@ import {
 } from '@patternfly/react-table';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
 import mockData from './../../mockdata-api.json';
+import './APITable.css';
 
 const APITable: React.FunctionComponent = () => {
 
@@ -42,23 +46,32 @@ const APITable: React.FunctionComponent = () => {
   const tableRows = mockData.map((tableRow) => {
       return {
         cells: [
-          tableRow.name,
+          { title: <a href="/">{tableRow.name}</a> },
           tableRow.systemName,
           tableRow.description,
-          tableRow.hits,
+          tableRow.hits.toLocaleString(),
           tableRow.applications,
-          tableRow.backendsUsed
+          tableRow.backendsUsed,
+          tableRow.unreadAlerts
         ]
       }
     });
 
   const tableActions = [
     {
-      title: 'Some action',
-      onClick: (event, rowId, rowData, extra) => console.log('clicked on Some action, on row: ', rowId)
+      title: <a href="/">Overview</a>
     },
     {
-      title: <a href="https://www.patternfly.org">Link action</a>
+      title: <a href="/">Analytics</a>
+    },
+    {
+      title: <a href="/">Applications</a>
+    },
+    {
+      title: <a href="/">ActiveDocs</a>
+    },
+    {
+      title: <a href="/">Integration</a>
     }
   ];
 
@@ -73,16 +86,25 @@ const APITable: React.FunctionComponent = () => {
   return (
   <React.Fragment>
     <PageSection variant={PageSectionVariants.light}>
-      <Title headingLevel="h1" size="lg">API Products</Title>
-      <p>Here is some content about Products. We could also include a link to documentation.</p>
+      <Level>
+        <LevelItem>
+          <Title headingLevel="h1" size="2xl">API Products</Title>
+        </LevelItem>
+        <LevelItem>
+          <Button>
+            New Product
+          </Button>
+        </LevelItem>
+      </Level>
+      <p className="api-table-description">Here is some content about Products. We could also include a link to documentation.</p>
     </PageSection>
     <Divider/>
     <PageSection variant={PageSectionVariants.light}>
       <Toolbar id="top-toolbar">
         <ToolbarContent>
           <ToolbarItem>
-            <InputGroup>
-              <TextInput placeholder="Find a product" name="textInput1" id="textInput1" type="search" aria-label="search input example" />
+            <InputGroup className="api-table-search">
+              <TextInput placeholder="Find a product" name="findProduct" id="findProduct" type="search" aria-label="Find a product" />
               <Button variant={ButtonVariant.control} aria-label="search button for search input">
                 <SearchIcon />
               </Button>
@@ -111,6 +133,7 @@ const APITable: React.FunctionComponent = () => {
               itemCount={37}
               perPage={perPage}
               page={page}
+              variant={PaginationVariant.bottom}
               onSetPage={onSetPage}
               widgetId="pagination-options-menu-top"
               onPerPageSelect={onPerPageSelect}

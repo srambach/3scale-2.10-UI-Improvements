@@ -15,3 +15,12 @@
 .pf-c-card__footer {
   margin-left: auto;
 }
+
+.pf-c-data-list__item-row {
+  --pf-c-data-list__item-row--PaddingLeft: 0;
+}
+
+.dashboard-list-secondary {
+  color: var(--pf-global--disabled-color--100);
+  font-size: var(--pf-global--FontSize--sm);
+}
