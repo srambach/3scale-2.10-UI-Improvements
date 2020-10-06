@@ -52,7 +52,7 @@ const APIDataList: React.FunctionComponent = () => {
               </a>
             </DataListCell>,
             <DataListCell key="secondary content" className="dashboard-list-secondary">
-              {row.hits.toLocaleString()} Hits
+              {row.timeCreated}
             </DataListCell>
           ]}
         />

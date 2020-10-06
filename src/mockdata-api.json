@@ -6,7 +6,8 @@
     "hits": 110780,
     "applications": 2,
     "backendsUsed": 4,
-    "unreadAlerts": 2
+    "unreadAlerts": 2,
+    "timeCreated": "30 Sept 2020; 8:05am"
   },
   {
     "name": "Product-2",
@@ -15,7 +16,8 @@
     "hits": 15097,
     "applications": 4,
     "backendsUsed": 3,
-    "unreadAlerts": 0
+    "unreadAlerts": 0,
+    "timeCreated": "30 Sept 2020; 8:05am"
   },
   {
     "name": "Product-3",
@@ -24,7 +26,8 @@
     "hits": 13880,
     "applications": 1,
     "backendsUsed": 2,
-    "unreadAlerts": 0
+    "unreadAlerts": 0,
+    "timeCreated": "30 Sept 2020; 8:05am"
   },
   {
     "name": "Product-4",
@@ -33,6 +36,7 @@
     "hits": 11204,
     "applications": 3,
     "backendsUsed": 1,
-    "unreadAlerts": 0
+    "unreadAlerts": 0,
+    "timeCreated": "30 Sept 2020; 8:05am"
   }
 ]
