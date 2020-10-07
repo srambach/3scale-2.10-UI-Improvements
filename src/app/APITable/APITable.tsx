@@ -28,8 +28,6 @@ import './APITable.css';
 
 const APITable: React.FunctionComponent = () => {
 
-  console.log('what is MOCK DATA' + mockData);
-
   const [perPage, setPerPage] = useState(20);
   const [page, setPage] = useState(1);
   

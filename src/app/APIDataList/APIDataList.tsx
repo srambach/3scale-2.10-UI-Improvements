@@ -84,10 +84,10 @@ const APIDataList: React.FunctionComponent = () => {
           <Dropdown
             isPlain
             position={DropdownPosition.right}
-            isOpen={isOpenArray.indexOf(`toggle-${index}`) !== -1 ? true : false}
+            isOpen={isOpenArray.indexOf(`toggle-${index}`) !== -1}
             // onSelect={onSelect}
             onClick={handleChange}
-            toggle={<KebabToggle id={`toggle-${index}`} onToggle={handleChange}  />}
+            toggle={<KebabToggle id={`toggle-${index}`} />}
             dropdownItems={[
               <DropdownItem key={`link-${index}`} href="/">
                 Overview
