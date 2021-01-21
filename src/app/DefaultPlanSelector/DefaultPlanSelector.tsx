@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Select,
-  SelectOption,
-  SelectVariant,
-  SelectDirection,
-  PageSection,
-  FormGroup,
-  Form,
-} from '@patternfly/react-core';
+import { Select, SelectOption, SelectVariant, PageSection, FormGroup, Form } from '@patternfly/react-core';
 
 const DefaultPlanSelector: React.FunctionComponent = () => {
   const labelText = 'Default plan';
@@ -62,7 +54,7 @@ const DefaultPlanSelector: React.FunctionComponent = () => {
               aria-labelledby="default-plan"
             >
               {options.map((option, index) => (
-                <SelectOption key={index} value={option.value} />
+                <SelectOption key={index} value={option.value} isPlaceholder={option.isPlaceholder} />
               ))}
             </Select>
           </FormGroup>
