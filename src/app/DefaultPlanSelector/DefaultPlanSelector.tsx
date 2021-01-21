@@ -10,12 +10,15 @@ import {
 } from '@patternfly/react-core';
 
 const DefaultPlanSelector: React.FunctionComponent = () => {
+  const labelText = 'Default plan';
+  const helperText = 'Default application (if any) is selected automatically upon service subscription.';
+  const placeholderText = '(None selected)';
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState('(None selected)');
+  const [selected, setSelected] = useState(placeholderText);
 
-  //TODO: list needs to be alphabetized here or where the list is built?
+  //TODO: list needs to be alphabetized, like wherever the list is built?
   const options = [
-    { value: '(None selected)' },
+    { value: placeholderText, isPlaceholder: true },
     { value: 'Application plan-01' },
     { value: 'Application plan-02' },
     { value: 'Application plan-03' },
@@ -39,7 +42,7 @@ const DefaultPlanSelector: React.FunctionComponent = () => {
   };
 
   const clearSelection = () => {
-    setSelected('(None selected)');
+    setSelected(placeholderText);
     setIsOpen(false);
   };
 
@@ -47,21 +50,16 @@ const DefaultPlanSelector: React.FunctionComponent = () => {
     <React.Fragment>
       <PageSection>
         <Form>
-          <FormGroup
-            fieldId="default-plan"
-            helperText="Default application (if any) is selected automatically upon service subscription."
-            label="Default plan"
-          >
+          <FormGroup fieldId="default-plan" helperText={helperText} label={labelText}>
             <Select
               variant={SelectVariant.typeahead}
-              typeAheadAriaLabel="Select a plan"
+              typeAheadAriaLabel={placeholderText}
               onToggle={onToggle}
               onSelect={onSelect}
               onClear={clearSelection}
               selections={selected}
               isOpen={isOpen}
               aria-labelledby="default-plan"
-              placeholderText="Select a plan"
             >
               {options.map((option, index) => (
                 <SelectOption key={index} value={option.value} />
