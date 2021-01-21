@@ -6,6 +6,7 @@ import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { APITable } from '@app/APITable/APITable';
 import { APIDataList } from '@app/APIDataList/APIDataList';
 import { ContextSelectorComponent } from '@app/ContextSelectorComponent/ContextSelectorComponent';
+import { DefaultPlanSelector } from '@app/DefaultPlanSelector/DefaultPlanSelector';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
@@ -81,7 +82,15 @@ const routes: AppRouteConfig[] = [
     label: 'Context Selector',
     path: '/contextselector',
     title: '3scale',
-  }
+  },
+  {
+    component: DefaultPlanSelector,
+    exact: true,
+    isAsync: true,
+    label: 'Default plan selector',
+    path: '/DefaultPlanSelector',
+    title: '3scale',
+  },
 ];
 
 // a custom hook for sending focus to the primary content container
